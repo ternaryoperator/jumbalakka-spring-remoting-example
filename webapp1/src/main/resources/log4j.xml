@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="true" threshold="trace">
+
+	<appender name="DEFAULT" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/quickfileshare.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="JUMBCOMMONS" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/jumb_commons.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+<!--
+	<appender name="HIBERNATESQL"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File"
+			value="hibernate-sql.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="HIBERNATEJDBC"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File"
+			value="hibernate-jdbc.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="HIBERNATEGENERIC"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File"
+			value="hibernate.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="HIBERNATETX"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File"
+			value="hibernate-tx.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+	
+	<category name="org.hibernate.SQL" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="HIBERNATESQL" />
+	</category>	
+	
+	<category name="org.hibernate.jdbc" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="HIBERNATEJDBC" />
+	</category>	
+	
+	<category name="org.hibernate.transaction" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="HIBERNATETX" />
+	</category>	
+	
+	<category name="org.hibernate" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="HIBERNATEGENERIC" />
+	</category>	
+-->		
+	
+	<category name="com.jumbalakka.commons" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="JUMBCOMMONS" />
+	</category>
+
+	<root>
+		<priority value="ERROR" />
+		<appender-ref ref="DEFAULT" />
+	</root>
+
+</log4j:configuration>
+

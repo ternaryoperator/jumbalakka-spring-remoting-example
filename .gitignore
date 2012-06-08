@@ -1,0 +1,16 @@
+
+webapp1/.classpath
+
+webapp1/.project
+
+webapp2/.classpath
+
+webapp2/.project
+
+webapp1/target/*
+
+webapp2/target/*
+
+webapp1/.settings/*
+
+webapp2/.settings/*
